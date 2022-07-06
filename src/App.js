@@ -4,7 +4,7 @@ import PulseLoader from "react-spinners/PulseLoader";
 const App = () => {
   const [name, setName] = useState("Translation will come here!");
   const [input, setInput] = useState("")
-  const [menu, setMenu] = useState(false);
+  const [menu, setMenu] = useState(true);
   const [btnName, setBtnName] = useState("Show More")
   const [len, setLen] = useState(43);
   const [loading, setLoading] = useState(false);

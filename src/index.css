@@ -1,0 +1,227 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+.main-div {
+  min-height: 100vh;
+  background: #060822;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+}
+
+
+.child-div {
+  text-align: center;
+  margin: 5rem 2rem 2rem 2rem;
+}
+
+.child-div figure img {
+  width: 12rem;
+  height: 12rem;
+}
+
+.child-div figure figcaption {
+  color: #fff;
+  font-size: 2.2rem;
+  padding-top: 2rem;
+  text-transform: capitalize;
+}
+.addItems{
+  position: relative;
+}
+input {
+  /* display: block; */
+  min-width: 55rem;
+  height: 3.4rem;
+  padding: 2rem 1.2rem;
+  font-size: 1.8rem;
+  line-height: 1.42857143;
+  margin-top: 2rem;
+  color: rgb(58, 57, 57);
+  background-image: none;
+  border: 0.1rem solid #ccc;
+  border-radius: 0.4rem;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+.form-control{
+  background-color: #fff;
+}
+.bg3{
+  background-color: #000!important;
+  color: #fff!important;
+  
+}
+.bg4{
+  background-color: #fff!important;
+  color: #000!important;
+  font-weight: 800;
+  
+}
+
+input,
+input:focus,
+input:active,
+input:active:focus {
+  border: none;
+  padding: 2.3rem 1.5rem;
+  outline: none;
+}
+
+input {
+  transition: all 0.2s linear;
+  position: relative;
+  box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.2);
+}
+
+.b {
+  color: #000 !important;
+  font-weight: 700;
+}
+
+.w {
+  color: #fff !important;
+  font-weight: 700;
+}
+.bg1{
+  background: #fff!important;
+}
+.bg2{
+  background: #060822!important;
+}
+
+.showItems {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.eachItem {
+  background: rgb(85, 41, 220);
+  width: 100%;
+  height: 100%;
+  border-radius: 0.4rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.eachItem h1 {
+  color: #fff;
+  font-size: 2rem;
+  padding: 1rem;
+  border-radius: 0.4rem;
+  font-weight: 700;
+  background: linear-gradient(-45deg, #4c4177, #9921e8, #2a5470, #5f72be);
+  background-size: 400% 400%;
+  animation: change 3s ease-in-out infinite;
+}
+
+@keyframes change {
+  0% {
+    background-position: 0 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0 50%;
+  }
+}
+
+.eachItem .box1 {
+  width: 90%;
+  background-color: #000;
+  height: 5rem;
+  border-radius: 0.4rem;
+  margin: 1.5rem 0;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+
+}
+
+.emoji {
+  display: flex;
+  max-width: 50rem;
+  flex-wrap: wrap;
+  margin-bottom: 4rem;
+  margin-top: 2rem;
+  justify-content: center;
+}
+
+.emojiBox span {
+  font-size: 4rem;
+  cursor: pointer;
+  transition: all .2s ease;
+}
+
+
+
+.tBoxX {
+  transform: translateX(18px);
+}
+
+.tBoxY {
+  transform: translateX(-5px);
+}
+
+.tDiv {
+  cursor: pointer;
+  width: 40px;
+  height: 20px;
+  background-color: rgb(212, 212, 212);
+  color: red;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  transition: all .1s ease;
+}
+
+.tBox {
+  transition: all .1s ease;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgb(85, 41, 220);
+}
+
+.tMain {
+  max-width: fit-content;
+  position: absolute;
+  top: 33px;
+  right: 14px;
+}
+
+
+
+
+
+
+
+@media(max-width:570px) {
+
+  input,
+  .eachItem {
+    min-width: 100%;
+  }
+}
+
+@media(max-width:490px) {
+  .eachItem .box1 {
+    font-size: 1.5rem;
+  }
+}

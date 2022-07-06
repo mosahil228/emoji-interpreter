@@ -1,9 +1,15 @@
-import React, { useState } from "react";
+import React, { useState} from "react";
 import todo from "./todo.png"
+import PulseLoader from "react-spinners/PulseLoader";
 const App = () => {
   const [name, setName] = useState("Translation will come here!");
   const [input, setInput] = useState("")
-  const[menu,setMenu]=useState(false);
+  const [menu, setMenu] = useState(false);
+  const [btnName, setBtnName] = useState("Show More")
+  const [len, setLen] = useState(43);
+  const [loading, setLoading] = useState(false);
+
+
   var emojiDictionary = {
     "😊": "smiling",
     "🙄": "disbelief",
@@ -47,15 +53,66 @@ const App = () => {
     "🐈‍⬛": "Black Cat",
     "🦁": "Lion",
     "🐯": "Tiger Face",
-    "🐅": "Tiger",
+    "🐅": "Tiger",  //43
+    "🍇": "Grapes",
+    "🍈": "Melon",
+    "🍉": "Watermelon",
+    "🍊": "Tangerine",
+    "🍋": "Lemon",
+    "🍌": "Banana",
+    "🍍": "Pineapple",
+    "🥭": "Mango",
+    "🍎": "Red Apple",
+    "🍏": "Green Apple",
+    "🍐": "Pear",
+    "🍑": "Peach",
+    "🍒": "Cherries",
+    "🍓": "Strawberry",
+    "🫐": "Blueberries",
+    "🥝": "Kiwi Fruit",
+    "🍅": "Tomato",
+    "🫒": "Olive",
+    "🥥": "Coconut",
+    "🥑": "Avocado",
+    "🍆": "Eggplant",
+    "🥔": "Potato",
+    "🥕": "Carrot",
+    "🌽": "Ear of Corn",
+    "🌶️": "Hot Pepper",
+    "🫑": "Bell Pepper",
+    "🥒": "Cucumber",
+    "🥬": "Leafy Green",
+    "🥦": "Broccoli",
+    "🧄": "Garlic",
+    "🧅": "Onion",
+    "🍄": "Mushroom",
+    "🥜": "Peanuts",
 
   };
-  const toggleMode=()=>{
-    if(!menu){
+  var length = Object.keys(emojiDictionary).length;
+
+  const toggleMode = () => {
+    if (!menu) {
       setMenu(true)
-    }else{
+    } else {
       setMenu(false)
     }
+
+  }
+  const btnToggle = () => {
+    setLoading(true)
+    setTimeout(() => {
+      setLoading(false)
+      if (len === 43 && btnName === "Show More") {
+        setLen(length)
+        setBtnName("Show less")
+      } else {
+        setLen(43)
+        setBtnName("Show More")
+      }
+
+    }, 900);
+   
   }
   const [transform, settransform] = useState(false);
   const changeColor = () => {
@@ -87,11 +144,11 @@ const App = () => {
   }
   return (
     <>
-      <div className={menu?"main-div bg1":"main-div bg2"}>
+      <div className={menu ? "main-div bg1" : "main-div bg2"}>
         <div className="child-div">
           <figure>
             <img src={todo} alt="todologo" />
-            <figcaption className={menu?"b":"w"}>Emoji Interpreter ✌</figcaption>
+            <figcaption className={menu ? "b" : "w"}>Emoji Interpreter ✌</figcaption>
           </figure>
           <div className="addItems">
             <input
@@ -102,7 +159,7 @@ const App = () => {
               onChange={changeInput}
             />
             <div className="tMain">
-              <div className='tDiv' onClick={() => {toggleMode(); changeColor(); }}>
+              <div className='tDiv' onClick={() => { toggleMode(); changeColor(); }}>
                 <div className={transform ? "tBox tBoxX" : "tBox"}></div>
               </div>
             </div>
@@ -110,16 +167,17 @@ const App = () => {
           {/* show our items  */}
           <div className="showItems">
             <div className="eachItem">
-              <div className={menu?"bg4 box1":"bg3 box1"}>
+              <div className={menu ? "bg4 box1" : "bg3 box1"}>
                 {name}
               </div>
               <h1>Emoji's We know</h1>
               <div className="emoji">
-                {Object.keys(emojiDictionary).map((elem,id) => {
+                {Object.keys(emojiDictionary).filter((elem, index) => index < len).map((elem, id) => {
                   return <div className="emojiBox" key={id}><span onClick={() => clickEmoji(elem)}>{elem}</span></div>
                 })}
               </div>
-
+              <button className="btn" onClick={btnToggle}>{loading ? <PulseLoader
+                color={"#fff"} size={8} /> : btnName}</button>
             </div>
 
           </div>
@@ -130,3 +188,4 @@ const App = () => {
   );
 };
 export default App;
+
